@@ -181,6 +181,20 @@
         "contactEmail": "pynuki@mailinator.com",
         "contactPhone": "+1 (153) 453-1957"
       }
+    },
+    {
+      "id": "288e",
+      "type": "Internship",
+      "title": "Lee Baird",
+      "description": "Odit ducimus vel ma",
+      "salary": "$125K - $150K",
+      "location": "Sed est corrupti et",
+      "company": {
+        "name": "Mcdaniel Goff Plc",
+        "description": "OOOOhh",
+        "contactEmail": "pynuki@mailinator.com",
+        "contactPhone": "+1 (153) 453-1957"
+      }
     }
   ]
 }
