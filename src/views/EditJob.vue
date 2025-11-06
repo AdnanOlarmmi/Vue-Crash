@@ -28,14 +28,16 @@ const state = reactive({
   loading: true,
 });
 
-const addJob = async () => {
+const updateJob = async () => {
   try {
-    const response = await axios.post("/api/jobs", form);
-    toast.success("Job added successfully");
-    router.push(`/jobs/${response.data.id}`);
+    await axios.put(`/api/jobs/${jobId}`, form);
+    toast.success("Job updated successfully");
+    router.push(`/jobs/${jobId}`);
   } catch (error) {
-    console.error("Error adding job:", error);
-    toast.error("Error adding job");
+    console.error("Error updating job:", error);
+    toast.error("Error updating job");
+  } finally {
+    state.loading = false;
   }
 };
 
@@ -68,7 +70,7 @@ onMounted(async () => {
       <div
         class="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0"
       >
-        <form @submit.prevent="addJob">
+        <form @submit.prevent="updateJob">
           <h2 class="text-3xl text-center font-semibold mb-6">Edit Job</h2>
 
           <div class="mb-4">
@@ -224,7 +226,7 @@ onMounted(async () => {
               class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
               type="submit"
             >
-              Update Job
+              {{ state.loading ? "Updating..." : "Update Job" }}
             </button>
           </div>
         </form>
